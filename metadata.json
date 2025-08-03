@@ -1,0 +1,6 @@
+{
+  "name": "Gemini OS/2 Home Edition",
+  "description": "A generative UI experience for home tasks, styled after the classic IBM OS/2 Warp operating system and powered by the Gemini API.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
