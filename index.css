@@ -1,0 +1,15 @@
+
+/* Estilos base do desktop OS/2 retro */
+html,
+body,
+#root {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #78716c #d6d3d1;
+}

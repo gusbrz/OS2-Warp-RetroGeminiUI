@@ -3,16 +3,18 @@ import React, { useState, useCallback } from 'react';
 import Window from './components/Window';
 import DesktopIcon from './components/DesktopIcon';
 import Taskbar from './components/Taskbar';
-import { RecipeIcon, TodoIcon, ImageIcon, TextEditorIcon, SpreadsheetIcon, BrowserIcon } from './components/icons';
+import { RecipeIcon, TodoIcon, ImageIcon, TextEditorIcon, SpreadsheetIcon, BrowserIcon, TrafficIcon } from './components/icons';
 import RecipeApp from './apps/RecipeApp';
 import TodoApp from './apps/TodoApp';
 import ImageApp from './apps/ImageApp';
 import TextEditorApp from './apps/TextEditorApp';
 import SpreadsheetApp from './apps/SpreadsheetApp';
 import BrowserApp from './apps/BrowserApp';
+import TrafficAgentApp from './apps/TrafficAgentApp';
 import type { WindowInstance, AppDefinition } from './types';
 
 const APPS: AppDefinition[] = [
+  { id: 'traffic', name: 'Tráfego Pago', icon: <TrafficIcon />, component: TrafficAgentApp },
   { id: 'recipes', name: 'Recipe Book', icon: <RecipeIcon />, component: RecipeApp },
   { id: 'todos', name: 'To-Do List', icon: <TodoIcon />, component: TodoApp },
   { id: 'images', name: 'Image Studio', icon: <ImageIcon />, component: ImageApp },

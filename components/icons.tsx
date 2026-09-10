@@ -40,3 +40,9 @@ export const BrowserIcon = () => (
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9 9 0 01-9-9 9 9 0 019-9 9 9 0 019 9 9 9 0 01-9 9z" transform="rotate(-30 12 12)" />
     </svg>
 );
+
+export const TrafficIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832l4.096-2.707A1 1 0 0114 4.118v15.764a1 1 0 01-1.072.998L8.832 18.173l-2.285-1.52" />
+    </svg>
+);
