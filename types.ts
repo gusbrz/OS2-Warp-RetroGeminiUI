@@ -39,6 +39,7 @@ export interface TrafficCampaignRequest {
   platform: string;
   objective: string;
   monthlyBudget: number;
+  locations: string[];
 }
 
 export interface TrafficAdCopy {
@@ -64,4 +65,54 @@ export interface TrafficCampaignPlan {
   budgetAllocation: BudgetAllocation[];
   kpis: string[];
   complianceNotes: string[];
+}
+
+/* ---- Agente Direto Google Ads ---- */
+
+export interface GeoLocation {
+  id: string | null;
+  name: string;
+  canonicalName?: string;
+  type?: string;
+  verified?: boolean;
+}
+
+export interface GoogleAdsStatus {
+  connected: boolean;
+  apiVersion: string;
+  customerId: string | null;
+  missing: string[];
+  account: { id: string; descriptiveName: string } | null;
+  accountError: string | null;
+}
+
+export interface GeoSearchResult {
+  source: 'google' | 'offline';
+  results: GeoLocation[];
+  message?: string;
+}
+
+export interface ValidateSummary {
+  campaignName: string;
+  operationsPreview: number;
+  keywords: string[];
+  locations: string[];
+  dailyBudgetBrl: number;
+}
+
+export interface LaunchResources {
+  campaign: string;
+  budget: string;
+  adGroup: string;
+  keywords: number;
+  locations: string[];
+  campaignName: string;
+}
+
+export interface LaunchResponse {
+  ok: boolean;
+  errors?: string[];
+  summary?: ValidateSummary;
+  resources?: LaunchResources;
+  campaignUrl?: string;
 }

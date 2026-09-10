@@ -140,6 +140,8 @@ OBRIGATÓRIO — COMPLIANCE NA PUBLICIDADE ADVOCATÍCIA (Provimento 205/2021 do 
 - PODE: divulgar áreas de atuação, produzir conteúdo informativo/educativo, usar tom sóbrio e institucional, e convidar para conhecer o trabalho do escritório.
 - Em "complianceNotes", aponte os cuidados éticos específicos da campanha gerada.
 
+CONTEXTO DO ESCRITÓRIO: atuação concentrada no Estado do Rio Grande do Sul, com foco nas regiões de Pelotas e Porto Alegre (conforme a segmentação geográfica de cada briefing).
+
 Responda SEMPRE em português brasileiro, com copy profissional e adequada à área de atuação informada.
 `;
 
@@ -212,6 +214,12 @@ BRIEFING DA CAMPANHA:
 - Plataforma principal: ${request.platform}
 - Objetivo da campanha: ${request.objective}
 - Orçamento mensal disponível: R$ ${request.monthlyBudget.toLocaleString('pt-BR')}
+- Segmentação geográfica (OBRIGATÓRIA): ${request.locations.join(' e ')} — Rio Grande do Sul, Brasil. Atinja apenas pessoas LOCALIZADAS nessas regiões.
+
+DIRETRIZES GEOGRÁFICAS:
+- Inclua a cidade/região nas palavras-chave de intenção (ex.: "advogado direito médico ${request.locations[0] || 'Pelotas'}", "advogado aéreo ${request.locations[request.locations.length - 1] || 'Porto Alegre'}").
+- A copy dos anúncios pode mencionar atendimento local na região de forma sóbria (ex.: "Atendimento em ${request.locations.join(' e ')} e online para todo o RS").
+- Nas segmentações de público, considere o contexto local (hospitais, aeroportos, universidades e empresas da região).
 
 Monte um plano de campanha completo, prático e imediatamente executável, respeitando todas as regras de compliance da advocacia.
 `;
