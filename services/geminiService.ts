@@ -2,11 +2,16 @@
 import { GoogleGenAI, Type, GenerateContentResponse } from "@google/genai";
 import type { Recipe, TodoItem } from '../types';
 
-if (!process.env.API_KEY) {
-    throw new Error("API_KEY environment variable not set");
-}
-
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Inicialização preguiçosa: sem GEMINI_API_KEY o desktop ainda abre (e as janelas
+// que dependem do modelo explicam a falta de chave) em vez de quebrar no import.
+let ai: GoogleGenAI | null = null;
+const getAi = (): GoogleGenAI => {
+    if (!process.env.API_KEY) {
+        throw new Error("GEMINI_API_KEY não configurada. Crie um arquivo .env.local com a sua chave.");
+    }
+    if (!ai) ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    return ai;
+};
 
 const recipeSchema = {
     type: Type.OBJECT,
@@ -29,7 +34,7 @@ const recipeSchema = {
 
 export const generateRecipe = async (prompt: string): Promise<Recipe> => {
     try {
-        const response: GenerateContentResponse = await ai.models.generateContent({
+        const response: GenerateContentResponse = await getAi().models.generateContent({
             model: 'gemini-2.5-flash',
             contents: `Generate a recipe based on the following request: ${prompt}. Be creative and clear.`,
             config: {
@@ -74,7 +79,7 @@ export const updateTodoList = async (command: string, currentTodos: TodoItem[]):
             - Do not add commentary, just the JSON array.
         `;
 
-        const response: GenerateContentResponse = await ai.models.generateContent({
+        const response: GenerateContentResponse = await getAi().models.generateContent({
             model: 'gemini-2.5-flash',
             contents: prompt,
             config: {
@@ -93,7 +98,7 @@ export const updateTodoList = async (command: string, currentTodos: TodoItem[]):
 
 export const generateImageFromPrompt = async (prompt: string): Promise<string> => {
      try {
-        const response = await ai.models.generateImages({
+        const response = await getAi().models.generateImages({
             model: 'imagen-3.0-generate-002',
             prompt: `Retro pixel art style. ${prompt}`,
             config: {

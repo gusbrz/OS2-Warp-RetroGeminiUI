@@ -3,13 +3,14 @@ import React, { useState, useCallback } from 'react';
 import Window from './components/Window';
 import DesktopIcon from './components/DesktopIcon';
 import Taskbar from './components/Taskbar';
-import { RecipeIcon, TodoIcon, ImageIcon, TextEditorIcon, SpreadsheetIcon, BrowserIcon } from './components/icons';
+import { RecipeIcon, TodoIcon, ImageIcon, TextEditorIcon, SpreadsheetIcon, BrowserIcon, JusticeAiIcon } from './components/icons';
 import RecipeApp from './apps/RecipeApp';
 import TodoApp from './apps/TodoApp';
 import ImageApp from './apps/ImageApp';
 import TextEditorApp from './apps/TextEditorApp';
 import SpreadsheetApp from './apps/SpreadsheetApp';
 import BrowserApp from './apps/BrowserApp';
+import JudicialAiAgentApp from './apps/JudicialAiAgentApp';
 import type { WindowInstance, AppDefinition } from './types';
 
 const APPS: AppDefinition[] = [
@@ -19,6 +20,7 @@ const APPS: AppDefinition[] = [
   { id: 'editor', name: 'Text Editor', icon: <TextEditorIcon />, component: TextEditorApp },
   { id: 'spreadsheet', name: 'Planilhas', icon: <SpreadsheetIcon />, component: SpreadsheetApp },
   { id: 'browser', name: 'Navegador Web', icon: <BrowserIcon />, component: BrowserApp },
+  { id: 'jusagent', name: 'Agente LLM-Judiciário', icon: <JusticeAiIcon />, component: JudicialAiAgentApp },
 ];
 
 const App: React.FC = () => {
@@ -28,7 +30,7 @@ const App: React.FC = () => {
 
   const openApp = useCallback((appId: string) => {
     // Allow multiple instances for some apps
-    const canHaveMultipleInstances = ['editor', 'spreadsheet', 'browser'].includes(appId);
+    const canHaveMultipleInstances = ['editor', 'spreadsheet', 'browser', 'jusagent'].includes(appId);
     if (!canHaveMultipleInstances) {
         const existingWindow = windows.find(w => w.appId === appId);
         if (existingWindow) {

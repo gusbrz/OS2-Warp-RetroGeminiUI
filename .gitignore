@@ -1,0 +1,13 @@
+# dependências e artefatos de build
+node_modules/
+dist/
+.vite/
+
+# chaves de API e ambiente local
+.env
+.env.local
+.env.*.local
+
+# resíduos de sistema
+.DS_Store
+*.log

@@ -1,6 +1,6 @@
 {
   "name": "Gemini OS/2 Home Edition",
-  "description": "A generative UI experience for home tasks, styled after the classic IBM OS/2 Warp operating system and powered by the Gemini API.",
+  "description": "A generative UI experience for home tasks, styled after the classic IBM OS/2 Warp operating system and powered by the Gemini API. Includes an evidence-grade agent that maps which LLMs the Brazilian Judiciary (TJRS/GAIA, TRF4, TRT/CSJT) actually runs.",
   "requestFramePermissions": [],
   "prompt": ""
 }
